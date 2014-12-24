@@ -6,7 +6,7 @@
 <!-- More on helper.js in the class -->
 <script src="js/helper.js"></script>
 <!--Interactive Google Maps-->
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script> 
 <meta name="viewport" content="width=device-width">
 </head>
 <body unresolved>
@@ -26,15 +26,27 @@
   <div id="education" class='gray'>
     <h2>Education</h2>
   </div>
-  <div id="skillsChart">
-    <h2>Skills Chart</h2>
-  </div>
-  <div id="mapDiv">
+  <div id="mapDiv" >
     <h2>Where I've Lived and Worked</h2>
   </div>
   <div id="letsConnect" class='dark-gray'>
     <h2 class='orange center-text'>Let's Connect</h2>
     <ul id="footerContacts" class="flex-box">
+        <li class="flex-item">
+          <span class="orange-text">Mobile</span>
+          <span class="white-text">(219)-805-4929</span>
+        </li>
+        <li class="flex-item">
+          <span class="orange-text">E-mail</span>
+          <span class="white-text">gmultani12@gmail.com</span>
+        </li>
+        <button>Internationalize</button>
+        <li class="flex-item">
+          <span class="orange-text">Twitter</span>
+          <span class="white-text">@gmultani12</span></li>
+        <li class="flex-item">
+          <span class="orange-text">Github</span>
+          <span class="white-text">gmultani12</span></li>
     </ul>
   </div>
 </div>
@@ -55,13 +67,10 @@
   if(document.getElementsByClassName("education-entry").length === 0) {
     document.getElementById("education").style.display = "none";
   }
-  if(document.getElementsByClassName("skills-entry").length === 0) {
-    document.getElementById("skillsChart").style.display = "none";
-  }
   if(document.getElementsByClassName("flex-item").length === 0) {
     document.getElementById("letsConnect").style.display = "none";
   }
-  if(document.getElementById("map") == undefined) {
+  if(document.getElementById("map") == null {
     document.getElementById("mapDiv").style.display = "none";
   }
   </script>

@@ -125,7 +125,7 @@ var work = {
     }, {
         "employer": "Indiana University (School of Public Health)",
         "title": "Cervical Cancer Research Assistant",
-        "location": "Bloomington, IN"
+        "location": "Bloomington, IN",
     }, {
         "employer": "Indiana University (School of Public Health)",
         "title": "STD Clinic Research Assistant",
@@ -224,7 +224,6 @@ function displayEducation() {
 
 displayEducation();
 
-
 function displayonlinecourses() {
 
     $(".education-entry:last").append(HTMLonlineClasses);
@@ -248,16 +247,29 @@ function displayonlinecourses() {
 
 displayonlinecourses();
 
+//Other Sections
 
+$(document).click(function(loc) {
+    var x = loc.pageX;
+    var y = loc.pageY;
+
+    logClicks(x,y);
+
+});
 
 // Return a list of job's 
-function locationizer(work) {
-    var result = [];
-    for (job in work.jobs) {
-        result.push(work.jobs[job].location);
-    }
-    return result;
+function locationizer(work_obj) {
+   var locationArray = [];
+
+   for (job in work_obj.jobs) {
+    var newLocation = work_obj.jobs[job].location;
+    locationArray.push(newLocation);
+   }
+
+   return locationArray;
+
 }
+
 
 // Add Internationalize button
 $("#main").append(internationalizeButton);
@@ -265,16 +277,27 @@ $("#main").append(internationalizeButton);
 // Reformat the given input into internationalize form
 function inName(name) {
     name = name.trim().split(" ");
+    console.log(name);
     name[1] = name[1].toUpperCase();
-    name[0] = name[0].slice(0, 1).toUpperCase() + name[0].slice(1).toLowerCase();
+    name[0] = name[0].slice(0,1).toUpperCase;
+    name[0].slice(1).toLowerCase();
 
     return name[0] + " " + name[1];
+
 }
 
 bio.display();
 displayWork();
 projects.display();
 
+// footer section
+
+$("#footerContacts").append(formattedmobile);
+$("#footerContacts").append(formattedemail);
+$('#footerContacts').append(internationalizeButton);
+$("#footerContacts").append(formattedtwitter);
+$("#footerContacts").append(formattedlinkedin);
+
 // map section
 
-//$("#mapDiv").append(googleMap);//
+$("#mapDiv").append(googleMap);
