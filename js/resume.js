@@ -298,6 +298,5 @@ $('#footerContacts').append(internationalizeButton);
 $("#footerContacts").append(formattedtwitter);
 $("#footerContacts").append(formattedlinkedin);
 
-// map section
-
+//Appends the custom Google map to id="mapDiv" in the document
 $("#mapDiv").append(googleMap);
