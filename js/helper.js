@@ -83,11 +83,13 @@ function logClicks(x,y) {
       "y": y
     }
   );
-  console.log("x location: " + x + "; y location: " + y);
+  console.log("x location: " + x +"; y location: " + y);
 }
 
 $(document).click(function(loc) {
-  // your code goes here!
+  var x = loc.pageX;
+  var y = loc.pageY;
+  logClicks(x,y);
 });
 
 
@@ -103,12 +105,12 @@ var map;    // declares a global map variable
 /*
 Start here! initializeMap() is called when page is loaded.
 */
-function initializeMap() {
+ function initializeMap() {
 
   var locations;        
 
   var mapOptions = {
-    disableDefaultUI: true
+  disableDefaultUI: true
   };
 
   // This next line makes `map` a new Google Map JavaScript Object and attaches it to
@@ -142,7 +144,6 @@ function initializeMap() {
 
     return locations;
   }
-
   /*
   createMapMarker(placeData) reads Google Places search results to create map pins.
   placeData is the object returned from search results containing information
@@ -168,12 +169,12 @@ function initializeMap() {
     // about a location.
     var infoWindow = new google.maps.InfoWindow({
       content: name
+      
     });
 
     // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
-      map.setZoom(6);
-      map.setCenter(marker.getPosition());
+    infoWindow.open(map, marker);  
     });
 
     // this is where the pin actually gets added to the map.
@@ -224,7 +225,6 @@ function initializeMap() {
 
   // locations is an array of location strings returned from locationFinder()
   locations = locationFinder();
-
   // pinPoster(locations) creates pins on the map for each location in
   // the locations array
   pinPoster(locations);
@@ -240,7 +240,7 @@ window.addEventListener('load', initializeMap);
 
 // Vanilla JS way to listen for resizing of the window 
 // and adjust map bounds
-//window.addEventListener('resize', function(e) {
+window.addEventListener('resize', function(e) {
   // Make sure the map bounds get updated on page resize
-map.fitBounds(mapBounds);
-//});
+  map.fitBounds(mapBounds);
+});

@@ -1,3 +1,6 @@
+//Appends the custom Google map to id="mapDiv" in the document
+$("#mapDiv").append(googleMap);
+
 // Bio object
 var bio = {
     "name": "Gurprit Multani",
@@ -10,7 +13,7 @@ var bio = {
         "location": "Bloomington, Indiana"
     },
     "skills": ["HTML", "CSS", "JavaScript", "Ruby on Rails"],
-    "bioPic": "images/gurprit.png"
+    "bioPic": "images/gurprit.jpg"
 };
 
 bio.display = function() {
@@ -297,6 +300,3 @@ $("#footerContacts").append(formattedemail);
 $('#footerContacts').append(internationalizeButton);
 $("#footerContacts").append(formattedtwitter);
 $("#footerContacts").append(formattedlinkedin);
-
-//Appends the custom Google map to id="mapDiv" in the document
-$("#mapDiv").append(googleMap);
